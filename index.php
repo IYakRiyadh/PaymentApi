@@ -8,9 +8,9 @@ $baseUrl = $isProduction ?
 'https://app.midtrans.com/snap/v1/transactions' :
 'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
-if (strpos($_SERVER['REQUEST_URL'],'/charge')) {
+if (!strpos($_SERVER['REQUEST_URL'],'/charge')) {
   http_response_code(404);
-  echo 'Salah Path or Server Error'; exit();
+  echo "salah path or server error '/charge'"; exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
